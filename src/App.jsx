@@ -61,13 +61,30 @@ function App() {
       <section id="about" className="about-section">
         <div className="about-heading">
           <p className="section-label">ABOUT ME</p>
-          <p className="about-summary">I build, learn and solve with technology.</p>
+          <h2>Technology should solve real problems.</h2>
+          <div className="about-copy">
+            <p>
+              I'm Siya, a technology professional passionate about building useful
+              digital solutions and understanding how technology can improve the way
+              people work.
+            </p>
+            <p>
+              My journey has taken me through software development, IT systems,
+              cloud technologies and product innovation. I enjoy taking complex
+              problems, breaking them down and turning them into practical solutions.
+            </p>
+            <p>
+              I'm naturally curious about how things work. Whether I'm building a web
+              application, working with APIs, exploring cloud infrastructure or
+              learning about cybersecurity, I'm always looking for ways to improve my
+              technical skills and understand the bigger picture behind the technology.
+            </p>
+          </div>
         </div>
 
         <div className="about-divider"></div>
 
         <div className="skills-group">
-          <p className="section-label">PROGRAMMING</p>
           <div className="programming-grid">
             <span>Java</span>
             <span>Python</span>
@@ -75,12 +92,6 @@ function App() {
             <span>SQL</span>
             <span>HTML</span>
             <span>CSS</span>
-          </div>
-        </div>
-
-        <div className="skills-group technologies">
-          <p className="section-label">TECHNOLOGIES</p>
-          <div className="technology-list">
             <span>React</span>
             <span>Spring Boot</span>
             <span>Azure</span>
