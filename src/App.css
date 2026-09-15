@@ -1,7 +1,7 @@
 .site-header {
   width: 100%;
   min-height: 76px;
-  padding: 0 32px;
+  padding: 0 clamp(32px, 6vw, 96px);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -97,8 +97,8 @@
 .home-content {
   position: relative;
   z-index: 1;
-  width: min(100%, 1126px);
-  padding: 100px 64px;
+  width: min(100%, 1440px);
+  padding: clamp(80px, 8vw, 120px) clamp(48px, 6vw, 96px);
   box-sizing: border-box;
 }
 
@@ -188,7 +188,7 @@
 }
 
 .about-section {
-  padding: 88px 64px 96px;
+  padding: 88px clamp(48px, 6vw, 96px) 96px;
   border-top: 1px solid var(--border);
   text-align: center;
   background: #ffffff;
@@ -287,7 +287,7 @@
 }
 
 .experience-section {
-  padding: 88px 64px 104px;
+  padding: 88px clamp(48px, 6vw, 96px) 104px;
   border-top: 1px solid var(--border);
   background: #f8fbff;
   text-align: center;
@@ -576,19 +576,26 @@
 }
 
 .contact-section {
-  padding: 96px 64px 104px;
+  padding: 72px clamp(48px, 6vw, 96px) 80px;
   border-top: 1px solid #334155;
   background: #0f172a;
   color: #ffffff;
 }
 
 .contact-panel {
-  width: min(100%, 930px);
+  width: min(100%, 1180px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.1fr) minmax(0, 0.85fr);
-  gap: 44px;
+  grid-template-columns: minmax(0, 1.55fr) minmax(250px, 0.95fr);
+  gap: 32px;
   align-items: start;
+}
+
+.contact-compose {
+  padding: 24px;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  background: #111d32;
 }
 
 .contact-label {
@@ -601,27 +608,31 @@
 }
 
 .contact-panel h2 {
-  margin: 20px 0 24px;
+  margin: 16px 0 18px;
   color: #ffffff;
-  font-size: clamp(30px, 4vw, 46px);
+  font-size: clamp(28px, 3.5vw, 40px);
   line-height: 1.12;
 }
 
 .contact-intro > p:last-child {
   max-width: 360px;
   color: #cbd5e1;
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.contact-details {
+  margin-top: 22px;
 }
 
 .contact-form {
   display: grid;
-  gap: 10px;
+  gap: 7px;
   text-align: left;
 }
 
 .contact-form label {
-  margin-top: 14px;
+  margin-top: 9px;
   color: #ffffff;
   font-size: 15px;
   font-weight: 600;
@@ -633,7 +644,7 @@
   box-sizing: border-box;
   border: 1px solid #334155;
   border-radius: 2px;
-  padding: 14px 16px;
+  padding: 11px 14px;
   color: #ffffff;
   font: inherit;
   background: #1e293b;
@@ -641,7 +652,7 @@
 }
 
 .contact-form textarea {
-  min-height: 132px;
+  min-height: 96px;
   resize: vertical;
 }
 
@@ -660,7 +671,7 @@
 
 .contact-form button {
   justify-self: start;
-  margin-top: 28px;
+  margin-top: 18px;
   border: 0;
   border-radius: 2px;
   padding: 14px 24px;
@@ -730,9 +741,16 @@
   font-weight: 600;
 }
 
+.contact-information {
+  padding: 28px 24px;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  background: #111d32;
+}
+
 .contact-information-list {
   display: grid;
-  gap: 24px;
+  gap: 20px;
 }
 
 .contact-information-item {
@@ -790,6 +808,14 @@
   .contact-panel {
     grid-template-columns: 1fr;
     gap: 42px;
+  }
+
+  .contact-compose {
+    padding: 26px 20px;
+  }
+
+  .contact-information {
+    padding: 26px 20px;
   }
 
   .contact-panel h2 {

@@ -160,47 +160,40 @@ function App() {
       <div className="ticks"></div>
       <section id="contact" className="contact-section">
         <div className="contact-panel">
-          <div className="contact-intro">
-            <p className="contact-label">CONTACT ME</p>
-            <h2>Let's start a conversation</h2>
-            <p>
-              Whether you have a specific project in mind, a technical challenge,
-              or just want to talk shop, I'm all ears.
-            </p>
-          </div>
+          <div className="contact-compose">
+            <div className="contact-intro">
+              <p className="contact-label">CONTACT ME</p>
+              <h2>Let's start a conversation</h2>
+              <p>
+                Whether you have a specific project in mind, a technical challenge,
+                or just want to talk shop, I'm all ears.
+              </p>
+            </div>
 
-          <div className="contact-details">
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <label htmlFor="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="What I should call you" required />
+            <div className="contact-details">
+              <form className="contact-form" onSubmit={handleSubmit}>
+                <label htmlFor="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="What I should call you" required />
 
-              <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="Where can I reach you" required />
+                <label htmlFor="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Where can I reach you" required />
 
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                placeholder="Tell me about what's on your mind"
-                required
-              ></textarea>
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about what's on your mind"
+                  required
+                ></textarea>
 
-              <button type="submit">Send Message</button>
-              {messageSent && (
-                <p className="form-status" role="status">
-                  Thanks for reaching out. I'll get back to you soon.
-                </p>
-              )}
-            </form>
-
-            <div className="contact-links" aria-label="Social links">
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-                LinkedIn <span aria-hidden="true">↗</span>
-              </a>
-              <a href="https://github.com/" target="_blank" rel="noreferrer">
-                GitHub <span aria-hidden="true">↗</span>
-              </a>
+                <button type="submit">Send Message</button>
+                {messageSent && (
+                  <p className="form-status" role="status">
+                    Thanks for reaching out. I'll get back to you soon.
+                  </p>
+                )}
+              </form>
             </div>
           </div>
 
