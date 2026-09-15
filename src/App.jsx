@@ -160,41 +160,94 @@ function App() {
       <div className="ticks"></div>
       <section id="contact" className="contact-section">
         <div className="contact-panel">
-          <p className="contact-label">CONTACT ME</p>
-          <h2>Let's build something useful together.</h2>
-
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <label htmlFor="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Siyabonga Nguza" required />
-
-            <label htmlFor="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="your@email.com" required />
-
-            <label htmlFor="message">Reason / Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              placeholder="Hello Siya, I would like to..."
-              required
-            ></textarea>
-
-            <button type="submit">Send Message</button>
-            {messageSent && (
-              <p className="form-status" role="status">
-                Thanks for reaching out. I'll get back to you soon.
-              </p>
-            )}
-          </form>
-
-          <div className="contact-links" aria-label="Social links">
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-              LinkedIn <span aria-hidden="true">↗</span>
-            </a>
-            <a href="https://github.com/" target="_blank" rel="noreferrer">
-              GitHub <span aria-hidden="true">↗</span>
-            </a>
+          <div className="contact-intro">
+            <p className="contact-label">CONTACT ME</p>
+            <h2>Let's start a conversation</h2>
+            <p>
+              Whether you have a specific project in mind, a technical challenge,
+              or just want to talk shop, I'm all ears.
+            </p>
           </div>
+
+          <div className="contact-details">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <label htmlFor="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="What I should call you" required />
+
+              <label htmlFor="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Where can I reach you" required />
+
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Tell me about what's on your mind"
+                required
+              ></textarea>
+
+              <button type="submit">Send Message</button>
+              {messageSent && (
+                <p className="form-status" role="status">
+                  Thanks for reaching out. I'll get back to you soon.
+                </p>
+              )}
+            </form>
+
+            <div className="contact-links" aria-label="Social links">
+              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+                LinkedIn <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://github.com/" target="_blank" rel="noreferrer">
+                GitHub <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <aside className="contact-information" aria-labelledby="contact-information-title">
+            <h3 id="contact-information-title">Contact information</h3>
+            <div className="contact-information-list">
+              <div className="contact-information-item">
+                <span className="contact-information-icon" aria-hidden="true">@</span>
+                <div>
+                  <p>Email</p>
+                  <a href="#contact">Send email</a>
+                </div>
+              </div>
+              <div className="contact-information-item">
+                <span className="contact-information-icon" aria-hidden="true">&#9679;</span>
+                <div>
+                  <p>Location</p>
+                  <span>South Africa, Johannesburg</span>
+                </div>
+              </div>
+              <div className="contact-information-item">
+                <span className="contact-information-icon" aria-hidden="true">&#9673;</span>
+                <div>
+                  <p>Languages</p>
+                  <span>English &bull; Xhosa</span>
+                </div>
+              </div>
+              <div className="contact-information-item">
+                <span className="contact-information-icon" aria-hidden="true">in</span>
+                <div>
+                  <p>LinkedIn</p>
+                  <a href="https://www.linkedin.com/in/siyabonga-nguza-630434283/" target="_blank" rel="noreferrer">
+                    Connect on LinkedIn
+                  </a>
+                </div>
+              </div>
+              <div className="contact-information-item">
+                <span className="contact-information-icon" aria-hidden="true">GH</span>
+                <div>
+                  <p>GitHub</p>
+                  <a href="https://github.com/s-nguza" target="_blank" rel="noreferrer">
+                    View GitHub profile
+                  </a>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
     </>

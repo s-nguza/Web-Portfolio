@@ -583,8 +583,12 @@
 }
 
 .contact-panel {
-  width: min(100%, 680px);
+  width: min(100%, 930px);
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.1fr) minmax(0, 0.85fr);
+  gap: 44px;
+  align-items: start;
 }
 
 .contact-label {
@@ -597,10 +601,17 @@
 }
 
 .contact-panel h2 {
-  margin: 20px 0 42px;
+  margin: 20px 0 24px;
   color: #ffffff;
   font-size: clamp(30px, 4vw, 46px);
   line-height: 1.12;
+}
+
+.contact-intro > p:last-child {
+  max-width: 360px;
+  color: #cbd5e1;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .contact-form {
@@ -648,7 +659,7 @@
 }
 
 .contact-form button {
-  justify-self: center;
+  justify-self: start;
   margin-top: 28px;
   border: 0;
   border-radius: 2px;
@@ -685,7 +696,7 @@
 
 .contact-links {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 32px;
   margin-top: 42px;
 }
@@ -712,9 +723,73 @@
   margin-left: 5px;
 }
 
+.contact-information h3 {
+  margin: 0 0 28px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.contact-information-list {
+  display: grid;
+  gap: 24px;
+}
+
+.contact-information-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.contact-information-icon {
+  display: inline-flex;
+  width: 25px;
+  min-width: 25px;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #475569;
+  border-radius: 50%;
+  color: #93c5fd;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.contact-information-item p {
+  margin-bottom: 3px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-information-item a {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.contact-information-item a:hover,
+.contact-information-item a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.contact-information-item a:focus-visible {
+  outline: 2px solid #bfdbfe;
+  outline-offset: 3px;
+}
+
 @media (max-width: 700px) {
   .contact-section {
     padding: 72px 20px 80px;
+  }
+
+  .contact-panel {
+    grid-template-columns: 1fr;
+    gap: 42px;
   }
 
   .contact-panel h2 {
