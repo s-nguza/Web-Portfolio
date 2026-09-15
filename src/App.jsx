@@ -17,6 +17,7 @@ function App() {
           Siyabonga Nguza
         </a>
         <nav aria-label="Main navigation">
+          <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#experience">Experience</a>
@@ -68,9 +69,13 @@ function App() {
 
       <section id="about" className="about-section">
         <div className="about-heading">
-          <p className="section-label">ABOUT ME</p>
+          <p className="section-label">ABOUT</p>
           <h2>Technology should solve real problems.</h2>
-          <div className="about-copy">
+        </div>
+
+        <div className="about-cards">
+          <article className="about-card about-copy">
+            <h3>About Me</h3>
             <p>
               I'm Siya, a technology professional passionate about building useful
               digital solutions and understanding how technology can improve the way
@@ -81,31 +86,27 @@ function App() {
               cloud technologies and product innovation. I enjoy taking complex
               problems, breaking them down and turning them into practical solutions.
             </p>
-            <p>
-              I'm naturally curious about how things work. Whether I'm building a web
-              application, working with APIs, exploring cloud infrastructure or
-              learning about cybersecurity, I'm always looking for ways to improve my
-              technical skills and understand the bigger picture behind the technology.
-            </p>
-          </div>
-        </div>
+          </article>
 
-        <div className="about-divider"></div>
-
-        <div className="skills-group">
-          <div className="programming-grid">
-            <span>Java</span>
-            <span>Python</span>
-            <span>JavaScript</span>
-            <span>SQL</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>React</span>
-            <span>Spring Boot</span>
-            <span>Azure</span>
-            <span>AWS</span>
-            <span>Git</span>
-          </div>
+          <article className="about-card technical-skills">
+            <h3>Technical Skills</h3>
+            <div className="skill-category">
+              <h4>Programming</h4>
+              <p>Java · Python · JavaScript<br />SQL · HTML · CSS</p>
+            </div>
+            <div className="skill-category">
+              <h4>Frameworks &amp; Tools</h4>
+              <p>React · Spring Boot<br />Git · Docker · Postman</p>
+            </div>
+            <div className="skill-category">
+              <h4>Cloud &amp; Systems</h4>
+              <p>Azure · AWS · Linux<br />REST APIs · Networking</p>
+            </div>
+            <div className="skill-category">
+              <h4>Cybersecurity</h4>
+              <p>Security Fundamentals<br />Nmap · Linux · SIEM</p>
+            </div>
+          </article>
         </div>
       </section>
 

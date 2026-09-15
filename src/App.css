@@ -195,7 +195,6 @@
 .about-section {
   padding: 88px clamp(48px, 6vw, 96px) 96px;
   border-top: 1px solid var(--border);
-  text-align: center;
   background: #ffffff;
 }
 
@@ -209,8 +208,9 @@
 }
 
 .about-heading {
-  max-width: 820px;
+  max-width: 920px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .about-heading h2 {
@@ -220,10 +220,33 @@
   line-height: 1.15;
 }
 
+.about-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 28px;
+  max-width: 1120px;
+  margin: 48px auto 0;
+}
+
+.about-card {
+  padding: 34px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #f8fbff;
+  text-align: left;
+}
+
+.about-card h3 {
+  margin: 0 0 26px;
+  color: var(--text-h);
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
 .about-copy {
-  margin-top: 24px;
   color: var(--text);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -231,44 +254,21 @@
   margin-top: 20px;
 }
 
-.about-divider {
-  height: 1px;
-  margin: 56px 0 52px;
-  background: var(--border);
+.skill-category + .skill-category {
+  margin-top: 22px;
 }
 
-.skills-group + .skills-group {
-  margin-top: 56px;
-}
-
-.skills-group {
-  max-width: 820px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.programming-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  max-width: 760px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 24px;
-}
-
-.programming-grid span {
-  padding: 9px 15px;
-  border: 1px solid var(--accent-border);
-  border-radius: 999px;
-  border: 1px solid var(--accent-border);
+.skill-category h4 {
+  margin: 0 0 6px;
   color: var(--text-h);
+  font-size: 15px;
+}
+
+.skill-category p {
+  color: var(--text);
   font-family: var(--mono);
   font-size: 13px;
-  line-height: 1;
-  text-align: center;
-  background: var(--accent-bg);
+  line-height: 1.8;
 }
 
 @media (max-width: 700px) {
@@ -276,18 +276,19 @@
     padding: 64px 20px 72px;
   }
 
+  .about-cards {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 36px;
+  }
+
+  .about-card {
+    padding: 26px 20px;
+  }
+
   .about-copy {
     font-size: 16px;
     line-height: 1.6;
-  }
-
-  .about-divider {
-    margin: 40px 0;
-  }
-
-  .programming-grid span {
-    padding: 8px 12px;
-    font-size: 12px;
   }
 }
 
