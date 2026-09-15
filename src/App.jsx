@@ -1,7 +1,15 @@
+import { useState } from 'react'
 import backgroundVideo from './assets/12754230_3840_2160_30fps.mp4'
 import './App.css'
 
 function App() {
+  const [messageSent, setMessageSent] = useState(false)
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    setMessageSent(true)
+  }
+
   return (
     <>
       <header id="top" className="site-header">
@@ -150,7 +158,45 @@ function App() {
       </section>
 
       <div className="ticks"></div>
-      <section id="spacer"></section>
+      <section id="contact" className="contact-section">
+        <div className="contact-panel">
+          <p className="contact-label">CONTACT ME</p>
+          <h2>Let's build something useful together.</h2>
+
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <label htmlFor="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Siyabonga Nguza" required />
+
+            <label htmlFor="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="your@email.com" required />
+
+            <label htmlFor="message">Reason / Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Hello Siya, I would like to..."
+              required
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+            {messageSent && (
+              <p className="form-status" role="status">
+                Thanks for reaching out. I'll get back to you soon.
+              </p>
+            )}
+          </form>
+
+          <div className="contact-links" aria-label="Social links">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer">
+              GitHub <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
