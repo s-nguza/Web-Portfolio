@@ -101,6 +101,54 @@ function App() {
         </div>
       </section>
 
+      <section id="experience" className="experience-section">
+        <div className="experience-heading">
+          <p className="section-label">EXPERIENCE</p>
+          <h2>My journey so far, building experience across software, technology and innovation.</h2>
+        </div>
+
+        <div className="timeline">
+          <article className="timeline-item">
+            <div className="timeline-marker">
+              <span>2026</span>
+              <i aria-hidden="true"></i>
+            </div>
+            <div className="experience-card">
+              <h3>Compatible Automotive</h3>
+              <p className="experience-role">Product Innovation Specialist Intern</p>
+              <p className="experience-location">Woodmead, South Africa</p>
+              <ul>
+                <li>Product innovation</li>
+                <li>Digital products</li>
+                <li>Testing &amp; documentation</li>
+              </ul>
+            </div>
+          </article>
+
+          <article className="timeline-item">
+            <div className="timeline-marker">
+              <span>2025</span>
+              <i aria-hidden="true"></i>
+            </div>
+            <div className="experience-card">
+              <h3>Consnet</h3>
+              <p className="experience-role">Software Development Intern</p>
+              <ul>
+                <li>APIs</li>
+                <li>Docker</li>
+                <li>Middleware</li>
+                <li>Testing</li>
+              </ul>
+            </div>
+          </article>
+
+          <div className="timeline-end">
+            <span aria-hidden="true">↓</span>
+            <p>What's next?</p>
+          </div>
+        </div>
+      </section>
+
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
