@@ -117,7 +117,11 @@ function App() {
       <section id="projects" className="projects-section">
         <div className="projects-heading">
           <p className="section-label">FEATURED PROJECTS</p>
-          <h2>Projects where I build, experiment and learn.</h2>
+          <p className="projects-intro">
+            A collection of projects where I turn ideas into practical
+            solutions, explore new technologies, strengthen my technical
+            skills, and learn through building real-world applications
+          </p>
         </div>
 
         <div className="projects-grid">
