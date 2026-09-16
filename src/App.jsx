@@ -86,6 +86,10 @@ function App() {
               cloud technologies and product innovation. I enjoy taking complex
               problems, breaking them down and turning them into practical solutions.
             </p>
+            <p>I’m naturally curious and always looking to learn something new. I enjoy taking complex problems, 
+              breaking them down into smaller pieces, and turning ideas into practical solutions. As I continue developing my career, 
+              I’m interested in the intersection of software development, cloud, cybersecurity, AI, and digital products, while continuously
+              building my skills through real-world projects and hands-on experience.</p>
           </article>
 
           <article className="about-card technical-skills">
@@ -105,6 +109,79 @@ function App() {
             <div className="skill-category">
               <h4>Cybersecurity</h4>
               <p>Security Fundamentals<br />Nmap · Linux · SIEM</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" className="projects-section">
+        <div className="projects-heading">
+          <p className="section-label">FEATURED PROJECTS</p>
+          <h2>Projects where I build, experiment and learn.</h2>
+        </div>
+
+        <div className="projects-grid">
+          <article className="project-card">
+            <div className="project-visual" aria-label="Web Portfolio screenshot placeholder">
+              <span>SCREENSHOT {'{placeholder}'}</span>
+            </div>
+            <div className="project-details">
+              <a href="#projects" className="project-title">
+                Web-Portifolio <span aria-hidden="true">↗</span>
+              </a>
+              <p>Short description</p>
+              <span className="project-status in-progress">
+                <span className="project-dot" aria-hidden="true"></span>
+                IN PROGRESS
+              </span>
+            </div>
+          </article>
+
+          <article className="project-card">
+            <div className="project-visual" aria-label="Banking app screenshot placeholder">
+              <span>SCREENSHOT {'{placeholder}'}</span>
+            </div>
+            <div className="project-details">
+              <a href="#projects" className="project-title">
+                Banking app <span aria-hidden="true">↗</span>
+              </a>
+              <p>Short description</p>
+              <span className="project-status in-progress">
+                <span className="project-dot" aria-hidden="true"></span>
+                IN PROGRESS
+              </span>
+            </div>
+          </article>
+
+          <article className="project-card">
+            <div className="project-visual" aria-label="Snake game screenshot placeholder">
+              <span>SCREENSHOT {'{placeholder}'}</span>
+            </div>
+            <div className="project-details">
+              <a href="#projects" className="project-title">
+                snakegame <span aria-hidden="true">↗</span>
+              </a>
+              <p>Short description</p>
+              <span className="project-status completed">
+                <span className="project-dot" aria-hidden="true"></span>
+                Completed
+              </span>
+            </div>
+          </article>
+
+          <article className="project-card">
+            <div className="project-visual" aria-label="Sneaker store screenshot placeholder">
+              <span>SCREENSHOT {'{placeholder}'}</span>
+            </div>
+            <div className="project-details">
+              <a href="#projects" className="project-title">
+                Sneakerstore <span aria-hidden="true">↗</span>
+              </a>
+              <p>Short description</p>
+              <span className="project-status in-progress">
+                <span className="project-dot" aria-hidden="true"></span>
+                IN PROGRESS
+              </span>
             </div>
           </article>
         </div>
