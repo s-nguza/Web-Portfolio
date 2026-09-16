@@ -319,13 +319,14 @@
   min-height: 170px;
   border-bottom: 1px solid var(--border);
   background: linear-gradient(135deg, #edf6ff 0%, #dfeaf7 100%);
-  color: #5e7386;
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  text-align: center;
+  overflow: hidden;
+}
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-details {

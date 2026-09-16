@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import backgroundVideo from './assets/12754230_3840_2160_30fps.mp4'
+import portfolioImage from './assets/image.png'
 import './App.css'
 
 function App() {
@@ -126,8 +127,8 @@ function App() {
 
         <div className="projects-grid">
           <article className="project-card">
-            <div className="project-visual" aria-label="Web Portfolio screenshot placeholder">
-              <span>SCREENSHOT {'{placeholder}'}</span>
+            <div className="project-visual" aria-label="Web Portfolio screenshot">
+              <img src={portfolioImage} alt="Web Portfolio screenshot" className="project-image" />
             </div>
             <div className="project-details">
               <a href="#projects" className="project-title">
