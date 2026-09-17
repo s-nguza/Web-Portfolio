@@ -236,6 +236,43 @@
   text-align: left;
 }
 
+@keyframes about-slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-72px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes about-slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(72px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.about-card {
+  opacity: 0;
+  transform: translateX(0);
+}
+
+.about-section.is-visible .about-copy {
+  animation: about-slide-from-left 700ms ease-out both;
+}
+
+.about-section.is-visible .technical-skills {
+  animation: about-slide-from-right 700ms 120ms ease-out both;
+}
+
 .about-card h3 {
   margin: 0 0 26px;
   color: var(--text-h);
@@ -269,6 +306,16 @@
   font-family: var(--mono);
   font-size: 13px;
   line-height: 1.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-card,
+  .about-section.is-visible .about-copy,
+  .about-section.is-visible .technical-skills {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .projects-section {
@@ -310,6 +357,14 @@
   background: #f8fbff;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.14);
+  transform: translateY(-6px);
 }
 
 .project-visual {
@@ -327,6 +382,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 240ms ease;
+}
+
+.project-card:hover .project-image,
+.project-card:focus-within .project-image {
+  transform: scale(1.03);
 }
 
 .project-details {
@@ -341,6 +402,16 @@
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
+}
+
+.project-title span {
+  display: inline-block;
+  transition: transform 240ms ease;
+}
+
+.project-card:hover .project-title span,
+.project-card:focus-within .project-title span {
+  transform: translate(3px, -3px);
 }
 
 .project-title:hover,
@@ -378,6 +449,26 @@
   border-radius: 50%;
   display: inline-block;
   background: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-image,
+  .project-title span {
+    transition: none;
+  }
+
+  .project-card:hover,
+  .project-card:focus-within {
+    transform: none;
+  }
+
+  .project-card:hover .project-image,
+  .project-card:focus-within .project-image,
+  .project-card:hover .project-title span,
+  .project-card:focus-within .project-title span {
+    transform: none;
+  }
 }
 
 .project-status.completed .project-dot {

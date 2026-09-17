@@ -1,10 +1,29 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import backgroundVideo from './assets/12754230_3840_2160_30fps.mp4'
 import portfolioImage from './assets/image.png'
 import './App.css'
 
 function App() {
   const [messageSent, setMessageSent] = useState(false)
+  const aboutSectionRef = useRef(null)
+  const [aboutIsVisible, setAboutIsVisible] = useState(false)
+
+  useEffect(() => {
+    const aboutSection = aboutSectionRef.current
+
+    if (!aboutSection) {
+      return undefined
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setAboutIsVisible(entry.isIntersecting),
+      { threshold: 0.25 },
+    )
+
+    observer.observe(aboutSection)
+
+    return () => observer.disconnect()
+  }, [])
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -68,7 +87,11 @@ function App() {
 
       <div className="ticks"></div>
 
-      <section id="about" className="about-section">
+      <section
+        id="about"
+        ref={aboutSectionRef}
+        className={`about-section${aboutIsVisible ? ' is-visible' : ''}`}
+      >
         <div className="about-heading">
           <p className="section-label">ABOUT</p>
           <h2>Technology should solve real problems.</h2>
