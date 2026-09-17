@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   const [messageSent, setMessageSent] = useState(false)
   const aboutSectionRef = useRef(null)
-  const [aboutIsVisible, setAboutIsVisible] = useState(false)
+  const timelineRef = useRef(null)
 
   useEffect(() => {
     const aboutSection = aboutSectionRef.current
@@ -16,11 +16,32 @@ function App() {
     }
 
     const observer = new IntersectionObserver(
-      ([entry]) => setAboutIsVisible(entry.isIntersecting),
-      { threshold: 0.25 },
+      ([entry]) => {
+        aboutSection.classList.toggle('is-visible', entry.isIntersecting)
+      },
+      { rootMargin: '0px 0px -25% 0px', threshold: 0.2 },
     )
 
     observer.observe(aboutSection)
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const timeline = timelineRef.current
+
+    if (!timeline) {
+      return undefined
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        timeline.classList.toggle('is-visible', entry.isIntersecting)
+      },
+      { threshold: 0.2 },
+    )
+
+    observer.observe(timeline)
 
     return () => observer.disconnect()
   }, [])
@@ -87,11 +108,7 @@ function App() {
 
       <div className="ticks"></div>
 
-      <section
-        id="about"
-        ref={aboutSectionRef}
-        className={`about-section${aboutIsVisible ? ' is-visible' : ''}`}
-      >
+      <section ref={aboutSectionRef} id="about" className="about-section">
         <div className="about-heading">
           <p className="section-label">ABOUT</p>
           <h2>Technology should solve real problems.</h2>
@@ -221,7 +238,7 @@ function App() {
           <h2>My journey so far, building experience across software, technology and innovation.</h2>
         </div>
 
-        <div className="timeline">
+        <div ref={timelineRef} className="timeline">
           <article className="timeline-item">
             <div className="timeline-marker">
               <span>2026</span>
