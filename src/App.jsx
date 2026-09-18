@@ -253,8 +253,9 @@ function App() {
                 <li>Digital products</li>
                 <li>Testing &amp; documentation</li>
               </ul>
-              <p className="experience-company"><strong>YoungDeltas</strong></p>
+              
               <ul>
+                <p className="experience-company"><strong>YoungDeltas</strong></p>
               <li>Consultant &amp; Entrepreneurship</li></ul>
             </div>
           </article>
