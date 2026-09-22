@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import backgroundVideo from './assets/12754230_3840_2160_30fps.mp4'
 import portfolioImage from './assets/image.png'
+import snakeGameImage from './assets/SnakeGame.png'
 import './App.css'
 
 function App() {
@@ -199,14 +200,14 @@ function App() {
           </article>
 
           <article className="project-card">
-            <div className="project-visual" aria-label="Snake game screenshot placeholder">
-              <span>SCREENSHOT {'{placeholder}'}</span>
+            <div className="project-visual" aria-label="Snake game screenshot">
+              <img src={snakeGameImage} alt="Snake game screenshot" className="project-image" />
             </div>
             <div className="project-details">
               <a href="#projects" className="project-title">
                 snakegame <span aria-hidden="true">↗</span>
               </a>
-              <p>Short description</p>
+              <p>A classic Snake game developed in Java. The game challenges players to control a snake, collect apples, and avoid obstacles while progressing through multiple levels, each with increasing difficulty.</p>
               <span className="project-status completed">
                 <span className="project-dot" aria-hidden="true"></span>
                 Completed
