@@ -2,10 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 import backgroundVideo from './assets/12754230_3840_2160_30fps.mp4'
 import portfolioImage from './assets/image.png'
 import snakeGameImage from './assets/SnakeGame.png'
+import emailjs from '@emailjs/browser'
 import './App.css'
 
+const EMAILJS_PUBLIC_KEY = '9Z_sE9UYSgt4A7fcF'
+const EMAILJS_SERVICE_ID = 'service_byxogbr'
+const EMAILJS_TEMPLATE_ID = 'template_dbtpzsr'
+
 function App() {
-  const [messageSent, setMessageSent] = useState(false)
+  const [formStatus, setFormStatus] = useState('idle')
   const aboutSectionRef = useRef(null)
   const timelineRef = useRef(null)
 
@@ -47,9 +52,21 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
-    setMessageSent(true)
+    const form = event.currentTarget
+    setFormStatus('sending')
+
+    try {
+      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      })
+      form.reset()
+      setFormStatus('sent')
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      setFormStatus('error')
+    }
   }
 
   return (
@@ -306,6 +323,18 @@ function App() {
                 <label htmlFor="email">Email</label>
                 <input id="email" name="email" type="email" placeholder="Where can I reach you" required />
 
+                <label htmlFor="reason">Reason</label>
+                <select id="reason" name="reason" defaultValue="" required>
+                  <option value="" disabled>
+                    What are you contacting me about?
+                  </option>
+                  <option value="Job Opportunity">Job Opportunity</option>
+                  <option value="Collaboration">Collaboration</option>
+                  <option value="Project Inquiry">Project Inquiry</option>
+                  <option value="General Question">General Question</option>
+                  <option value="Other">Other</option>
+                </select>
+
                 <label htmlFor="message">Message</label>
                 <textarea
                   id="message"
@@ -315,10 +344,17 @@ function App() {
                   required
                 ></textarea>
 
-                <button type="submit">Send Message</button>
-                {messageSent && (
+                <button type="submit" disabled={formStatus === 'sending'}>
+                  {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
+                </button>
+                {formStatus === 'sent' && (
                   <p className="form-status" role="status">
                     Thanks for reaching out. I'll get back to you soon.
+                  </p>
+                )}
+                {formStatus === 'error' && (
+                  <p className="form-status form-status-error" role="alert">
+                    Something went wrong sending your message. Please try again.
                   </p>
                 )}
               </form>
