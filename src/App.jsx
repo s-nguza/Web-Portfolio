@@ -9,6 +9,60 @@ const EMAILJS_PUBLIC_KEY = '9Z_sE9UYSgt4A7fcF'
 const EMAILJS_SERVICE_ID = 'service_byxogbr'
 const EMAILJS_TEMPLATE_ID = 'template_dbtpzsr'
 
+const FOCUS_AREAS = ['software development', 'cloud computing', 'cybersecurity']
+
+function TypingText({ words }) {
+  const [wordIndex, setWordIndex] = useState(0)
+  const [length, setLength] = useState(0)
+  const [deleting, setDeleting] = useState(false)
+  const [reduceMotion] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  )
+
+  const word = words[wordIndex]
+
+  useEffect(() => {
+    if (reduceMotion) {
+      return undefined
+    }
+
+    let delay = deleting ? 45 : 90
+
+    if (!deleting && length === word.length) {
+      delay = 1800
+    } else if (deleting && length === 0) {
+      delay = 400
+    }
+
+    const timer = setTimeout(() => {
+      if (!deleting && length === word.length) {
+        setDeleting(true)
+      } else if (deleting && length === 0) {
+        setDeleting(false)
+        setWordIndex((index) => (index + 1) % words.length)
+      } else {
+        setLength((current) => current + (deleting ? -1 : 1))
+      }
+    }, delay)
+
+    return () => clearTimeout(timer)
+  }, [deleting, length, reduceMotion, word, words.length])
+
+  if (reduceMotion) {
+    return <span className="typed-text">{words.join(', ')}</span>
+  }
+
+  return (
+    <>
+      <span className="visually-hidden">{words.join(', ')}</span>
+      <span className="typed-text" aria-hidden="true">
+        {word.slice(0, length)}
+        <span className="typed-cursor"></span>
+      </span>
+    </>
+  )
+}
+
 function App() {
   const [formStatus, setFormStatus] = useState('idle')
   const aboutSectionRef = useRef(null)
@@ -106,7 +160,7 @@ function App() {
           <p className="intro">
             I build digital solutions and explore
             <br />
-            software, cloud and cybersecurity.
+            <TypingText words={FOCUS_AREAS} />
           </p>
           <div className="hero-actions">
             <a className="hero-button primary" href="#projects">
@@ -122,6 +176,9 @@ function App() {
             </a>
           </div>
         </div>
+        <a className="scroll-cue" href="#about" aria-label="Scroll to About section">
+          <span></span>
+        </a>
       </section>
 
       <div className="ticks"></div>
