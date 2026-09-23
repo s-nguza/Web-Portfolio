@@ -65,6 +65,7 @@ function TypingText({ words }) {
 
 function App() {
   const [formStatus, setFormStatus] = useState('idle')
+  const [menuOpen, setMenuOpen] = useState(false)
   const aboutSectionRef = useRef(null)
   const timelineRef = useRef(null)
 
@@ -79,7 +80,7 @@ function App() {
       ([entry]) => {
         aboutSection.classList.toggle('is-visible', entry.isIntersecting)
       },
-      { rootMargin: '0px 0px -25% 0px', threshold: 0.2 },
+      { rootMargin: '0px 0px -25% 0px', threshold: 0.05 },
     )
 
     observer.observe(aboutSection)
@@ -106,6 +107,22 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    if (!menuOpen) {
+      return undefined
+    }
+
+    function handleKeyDown(event) {
+      if (event.key === 'Escape') {
+        setMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [menuOpen])
+
   async function handleSubmit(event) {
     event.preventDefault()
     const form = event.currentTarget
@@ -125,11 +142,23 @@ function App() {
 
   return (
     <>
-      <header id="top" className="site-header">
-        <a className="site-name" href="#top">
+      <header id="top" className={`site-header${menuOpen ? ' is-menu-open' : ''}`}>
+        <a className="site-name" href="#top" onClick={() => setMenuOpen(false)}>
           Siyabonga Nguza
         </a>
-        <nav aria-label="Main navigation">
+        <button
+          type="button"
+          className="menu-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="main-navigation"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="main-navigation" aria-label="Main navigation" onClick={() => setMenuOpen(false)}>
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
