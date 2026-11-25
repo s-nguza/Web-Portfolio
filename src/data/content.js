@@ -1,5 +1,8 @@
 import portfolioImage from '../assets/image.png'
 import snakeGameImage from '../assets/SnakeGame.png'
+import trackerLogin from '../assets/tracker-ibooking/login.png'
+import trackerOrders from '../assets/tracker-ibooking/orders.png'
+import trackerRegister from '../assets/tracker-ibooking/register.png'
 
 // All editable site content lives here so the components stay presentational.
 
@@ -23,41 +26,56 @@ export const SKILLS = [
   { title: 'Cybersecurity', items: ['Security Fundamentals', 'Nmap', 'Linux', 'SIEM'] },
 ]
 
+export const STATUS_LABELS = {
+  'in-progress': 'In progress',
+  completed: 'Completed',
+}
+
 // status: 'in-progress' | 'completed'
-// url: link to the repo or live demo (leave null to show the card without a link)
+// device: 'desktop' | 'mobile' (controls how screenshots are framed)
+// screenshots: shown in a gallery when the project card is clicked (first one is the cover)
+// url: link to the repo or live demo (leave null to hide the link)
 export const PROJECTS = [
   {
     title: 'Web Portfolio',
     description:
       'This site: a responsive personal portfolio built with React and Vite, with a light/dark theme, scroll animations and an EmailJS-powered contact form.',
-    image: portfolioImage,
+    device: 'desktop',
+    screenshots: [{ src: portfolioImage, caption: 'Home page' }],
     tags: ['React', 'Vite', 'CSS', 'EmailJS'],
     status: 'in-progress',
     url: null, // TODO: add the GitHub repo or live site link
   },
   {
-    title: 'Banking App',
-    // TODO: write a one or two sentence description and add tags + a screenshot.
-    description: 'Description coming soon.',
-    image: null,
-    tags: [],
+    title: 'Tracker iBooking',
+    description:
+      'An order and queue management app for kasi food stores and restaurants. Businesses register their store, then track the day’s orders from confirmed to preparing, ready and done. Orders are sorted by when they must start so everything is ready on time, with kitchen capacity and wait times at a glance.',
+    device: 'mobile',
+    screenshots: [
+      { src: trackerLogin, caption: 'Staff log in' },
+      { src: trackerRegister, caption: 'Register your business' },
+      { src: trackerOrders, caption: 'Today’s orders dashboard' },
+    ],
+    tags: [], // TODO: add the technologies used, e.g. ['React', 'Node.js']
     status: 'in-progress',
-    url: null,
+    url: null, // TODO: add the GitHub repo or live site link
   },
   {
     title: 'Snake Game',
     description:
       'A classic Snake game developed in Java. Players control a snake, collect apples and avoid obstacles while progressing through multiple levels of increasing difficulty.',
-    image: snakeGameImage,
+    device: 'desktop',
+    screenshots: [{ src: snakeGameImage, caption: 'Gameplay' }],
     tags: ['Java'],
     status: 'completed',
     url: null, // TODO: add the GitHub repo link
   },
   {
     title: 'Sneaker Store',
-    // TODO: write a one or two sentence description and add tags + a screenshot.
+    // TODO: write a one or two sentence description and add tags + screenshots.
     description: 'Description coming soon.',
-    image: null,
+    device: 'desktop',
+    screenshots: [],
     tags: [],
     status: 'in-progress',
     url: null,

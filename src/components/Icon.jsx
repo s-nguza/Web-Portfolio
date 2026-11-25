@@ -35,6 +35,10 @@ const PATHS = {
   'arrow-right': <path d="M5 12h14M13 5l7 7-7 7" />,
   'arrow-up': <path d="M12 19V5M5 12l7-7 7 7" />,
   send: <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />,
+  close: <path d="M18 6L6 18M6 6l12 12" />,
+  'chevron-left': <path d="M15 18l-6-6 6-6" />,
+  'chevron-right': <path d="M9 18l6-6-6-6" />,
+  expand: <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />,
 }
 
 export default function Icon({ name, size = 20, className }) {
