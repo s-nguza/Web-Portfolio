@@ -2,9 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/Icontop.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>web-portfolio</title>
+    <title>Siyabonga Nguza | Software Developer &amp; IT Professional</title>
+    <meta
+      name="description"
+      content="Portfolio of Siyabonga Nguza, a software developer and IT professional exploring software development, cloud computing and cybersecurity."
+    />
+    <meta name="theme-color" content="#05080f" />
+    <link rel="icon" type="image/jpeg" href="/Icontop.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Apply the saved or system theme before first paint to avoid a flash. -->
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('theme')
+          if (theme !== 'light' && theme !== 'dark') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          }
+          document.documentElement.dataset.theme = theme
+        } catch (e) {}
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

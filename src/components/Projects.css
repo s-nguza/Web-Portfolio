@@ -1,0 +1,184 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.projects-grid > li {
+  display: flex;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.35s var(--ease-out),
+    border-color 0.3s ease,
+    box-shadow 0.35s ease,
+    background-color 0.3s ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+}
+
+.project-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.project-card:hover .project-media img,
+.project-card:focus-within .project-media img {
+  transform: scale(1.04);
+}
+
+.project-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(60% 80% at 20% 20%, rgba(59, 130, 246, 0.35), transparent 70%),
+    radial-gradient(60% 80% at 85% 85%, rgba(139, 92, 246, 0.35), transparent 70%),
+    var(--surface-2);
+}
+
+.project-placeholder span {
+  color: var(--text-strong);
+  font-family: var(--font-mono);
+  font-size: 44px;
+  font-weight: 700;
+  opacity: 0.35;
+  letter-spacing: 0.05em;
+}
+
+.status-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--header-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-strong);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--warning);
+}
+
+.status-completed .status-dot {
+  background: var(--success);
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  padding: 24px 26px 28px;
+}
+
+.project-title {
+  font-size: 20px;
+}
+
+.project-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Make the whole card clickable when it has a link. */
+.project-title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.project-title svg {
+  color: var(--text-muted);
+  transition: transform 0.3s var(--ease-out), color 0.2s ease;
+}
+
+.project-card:hover .project-title svg,
+.project-card:focus-within .project-title svg {
+  color: var(--accent);
+  transform: translate(3px, -3px);
+}
+
+.project-body > p {
+  color: var(--text-muted);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+.project-body .chip-list {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.project-body .chip {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-media img,
+  .project-title svg {
+    transition: none;
+  }
+
+  .project-card:hover,
+  .project-card:focus-within,
+  .project-card:hover .project-media img,
+  .project-card:focus-within .project-media img,
+  .project-card:hover .project-title svg,
+  .project-card:focus-within .project-title svg {
+    transform: none;
+  }
+}
