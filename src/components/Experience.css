@@ -1,0 +1,127 @@
+.experience-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+}
+
+.experience-header {
+  position: sticky;
+  top: calc(var(--header-offset) + 24px);
+  margin-bottom: 0;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 20px;
+  padding-left: 36px;
+}
+
+/* Track */
+.timeline::before,
+.timeline::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 7px;
+  width: 2px;
+  border-radius: 2px;
+}
+
+.timeline::before {
+  background: var(--border);
+}
+
+/* Progress line that draws in when the timeline scrolls into view */
+.timeline::after {
+  background: var(--gradient);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.4s var(--ease-out);
+}
+
+.timeline.is-visible::after {
+  transform: scaleY(1);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 30px;
+  left: -36px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--bg);
+  border-radius: 50%;
+  background: var(--gradient);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+  z-index: 1;
+}
+
+.experience-card {
+  padding: 24px 26px;
+}
+
+.experience-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+.experience-year {
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.experience-card h3 {
+  margin-top: 6px;
+  font-size: 21px;
+}
+
+.experience-role {
+  margin-top: 4px;
+  color: var(--text-strong);
+  font-weight: 500;
+}
+
+.experience-location {
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+}
+
+.experience-card .chip-list {
+  margin-top: 16px;
+}
+
+.timeline-end {
+  margin-top: 20px;
+  padding-left: 36px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .experience-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-header {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline::after {
+    transform: none;
+    transition: none;
+  }
+}
