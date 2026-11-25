@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router'
 import Icon from './Icon'
 import './Header.css'
 
 const NAV_ITEMS = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'contact', label: 'Contact' },
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/experience', label: 'Experience' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 export default function Header({ theme, onToggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [activeId, setActiveId] = useState('home')
+  const { pathname } = useLocation()
 
-  // Switch from transparent-over-hero to frosted glass once the page scrolls.
   useEffect(() => {
     function handleScroll() {
       setScrolled(window.scrollY > 24)
@@ -24,25 +24,6 @@ export default function Header({ theme, onToggleTheme }) {
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Highlight the nav link for the section currently in the middle of the viewport.
-  useEffect(() => {
-    const sections = NAV_ITEMS.map(({ id }) => document.getElementById(id)).filter(Boolean)
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id)
-          }
-        })
-      },
-      { rootMargin: '-45% 0px -50% 0px' },
-    )
-
-    sections.forEach((section) => observer.observe(section))
-    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
@@ -62,30 +43,33 @@ export default function Header({ theme, onToggleTheme }) {
 
   const closeMenu = () => setMenuOpen(false)
   const isDark = theme === 'dark'
+
+  // Only the home page has the dark video hero behind the header.
+  const overHero = pathname === '/' && !scrolled && !menuOpen
   const classes = ['site-header']
-  if (scrolled || menuOpen) classes.push('is-solid')
+  if (!overHero) classes.push('is-solid')
   if (menuOpen) classes.push('is-menu-open')
 
   return (
     <header className={classes.join(' ')}>
-      <a className="brand" href="#home" onClick={closeMenu}>
+      <Link className="brand" to="/" onClick={closeMenu}>
         <span className="brand-mark" aria-hidden="true">
           SN
         </span>
         <span className="brand-name">Siyabonga Nguza</span>
-      </a>
+      </Link>
 
       <nav id="main-navigation" aria-label="Main navigation">
-        {NAV_ITEMS.map(({ id, label }) => (
-          <a
-            key={id}
-            href={`#${id}`}
-            className={activeId === id ? 'is-active' : undefined}
-            aria-current={activeId === id ? 'true' : undefined}
+        {NAV_ITEMS.map(({ to, label }) => (
+          <NavLink
+            key={to}
+            to={to}
+            end={to === '/'}
+            className={({ isActive }) => (isActive ? 'is-active' : undefined)}
             onClick={closeMenu}
           >
             {label}
-          </a>
+          </NavLink>
         ))}
       </nav>
 

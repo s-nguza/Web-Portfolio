@@ -1,5 +1,6 @@
 import { PROJECTS } from '../data/content'
 import Icon from './Icon'
+import PageLink from './PageLink'
 import Reveal from './Reveal'
 import './Projects.css'
 
@@ -62,11 +63,12 @@ function ProjectCard({ title, description, image, tags, status, url }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="section section-alt">
+    <section id="projects" className="section page">
+      <title>Projects | Siyabonga Nguza</title>
       <div className="container">
         <Reveal className="section-header">
           <p className="eyebrow">Featured projects</p>
-          <h2>Things I&rsquo;ve built</h2>
+          <h1>Things I&rsquo;ve built</h1>
           <p>
             A collection of projects where I turn ideas into practical solutions, explore new
             technologies and learn by building real-world applications.
@@ -80,6 +82,8 @@ export default function Projects() {
             </Reveal>
           ))}
         </ul>
+
+        <PageLink to="/experience" label="Experience" />
       </div>
     </section>
   )

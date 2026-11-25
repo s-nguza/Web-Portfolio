@@ -1,16 +1,18 @@
 import { ABOUT_PARAGRAPHS, SKILLS } from '../data/content'
+import PageLink from './PageLink'
 import Reveal from './Reveal'
 import './About.css'
 
 export default function About() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section page">
+      <title>About | Siyabonga Nguza</title>
       <div className="container">
         <Reveal className="section-header">
           <p className="eyebrow">About</p>
-          <h2>
+          <h1>
             Technology should solve <span className="gradient-text">real problems.</span>
-          </h2>
+          </h1>
         </Reveal>
 
         <div className="about-grid">
@@ -39,6 +41,8 @@ export default function About() {
             </div>
           </Reveal>
         </div>
+
+        <PageLink to="/projects" label="Featured projects" />
       </div>
     </section>
   )

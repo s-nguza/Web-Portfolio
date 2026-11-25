@@ -39,13 +39,14 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section section-alt">
+    <section id="contact" className="section page">
+      <title>Contact | Siyabonga Nguza</title>
       <div className="container contact-layout">
         <Reveal className="contact-intro">
           <p className="eyebrow">Contact</p>
-          <h2>
+          <h1>
             Let&rsquo;s start a <span className="gradient-text">conversation</span>
-          </h2>
+          </h1>
           <p className="contact-lead">
             Whether you have a specific project in mind, a technical challenge, or just want to
             talk shop, I&rsquo;m all ears.

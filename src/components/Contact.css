@@ -5,7 +5,7 @@
   align-items: start;
 }
 
-.contact-intro h2 {
+.contact-intro h1 {
   margin-top: 14px;
   font-size: clamp(32px, 4.4vw, 50px);
 }
